@@ -47,6 +47,16 @@ abp install-libs
 
 #### Create the Database
 
+To start PostgreSQL locally, run this command from the repository root with Docker Desktop running:
+
+```bash
+docker compose up -d
+```
+
+This matches the existing connection strings (`BookStore`, user `root`, password `myPassword`). The named volume preserves data when the container is removed. These credentials are for local development only.
+
+To stop and remove the container, use `docker compose down`. The database volume is retained; adding `-v` deletes the database data.
+
 Run `Acme.BookStore.DbMigrator` to create the initial database. This should be done in the first run. It is also needed if a new database migration is added to the solution later.
 
 ### Solution structure
