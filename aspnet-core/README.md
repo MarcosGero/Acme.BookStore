@@ -84,3 +84,6 @@ You can see the following resources to learn more about your solution and the AB
 ``` powershell
 dotnet run --project aspnet-core/src/Acme.BookStore.HttpApi.Host --launch-profile Acme.BookStore.HttpApi.Host
 ```
+```powershell
+dotnet test .\aspnet-core\test\Acme.BookStore.EntityFrameworkCore.Tests\Acme.BookStore.EntityFrameworkCore.Tests.csproj
+```
