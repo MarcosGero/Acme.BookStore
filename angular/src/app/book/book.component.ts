@@ -1,9 +1,8 @@
 import { ListService, PagedResultDto } from '@abp/ng.core';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService, BookDto, bookTypeOptions, AuthorLookupDto } from '@proxy/books';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NgbDateNativeAdapter, NgbDateAdapter, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from '../shared/shared.module';
+import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,7 +10,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  imports: [SharedModule, NgbDatepickerModule],
+  styleUrls: ['./book.component.scss'],
   providers: [ListService, { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
 })
 export class BookComponent implements OnInit {
@@ -33,7 +32,7 @@ export class BookComponent implements OnInit {
   private readonly confirmation = inject(ConfirmationService);
 
   constructor() {
-    this.authors$ = this.bookService.getAuthorLookup().pipe(map((r) => r.items));
+    this.authors$ = bookService.getAuthorLookup().pipe(map((r) => r.items));
   }
 
   ngOnInit() {

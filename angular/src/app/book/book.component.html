@@ -61,17 +61,19 @@
     <h3>{{ (selectedBook.id ? '::Edit' : '::NewBook') | abpLocalization }}</h3>
   </ng-template>
   <ng-template #abpBody>
+    <div class="form-group">
+      <label for="author-id">Author</label>
+      <span> * </span>
+      <select class="form-control" id="author-id" formControlName="authorId">
+        <option [ngValue=""]="null">Select author</option>
+        @for (author of authors$ | async; track author) {
+        <option [ngValue=""]="author.id">
+          {{ author.name }}
+        </option>
+        }
+      </select>
+    </div>
     <form [formGroup]="form" (ngSubmit)="save()">
-      <div class="form-group">
-        <label for="author-id">Author</label>
-        <span> * </span>
-        <select class="form-control" id="author-id" formControlName="authorId">
-          <option [ngValue]="null">Select author</option>
-          @for (author of authors$ | async; track author.id) {
-            <option [ngValue]="author.id">{{ author.name }}</option>
-          }
-        </select>
-      </div>
       <div class="mt-2">
         <label for="book-name">Name</label><span> * </span>
         <input id="book-name" type="text" class="form-control" formControlName="name" autofocus />
