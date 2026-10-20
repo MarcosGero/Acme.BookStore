@@ -78,3 +78,9 @@ You can see the following resources to learn more about your solution and the AB
 * [Web Application Development Tutorial](https://abp.io/docs/latest/tutorials/book-store/part-01?UI=Blazor&DB=EF)
 * [Application Startup Template Structure](https://abp.io/docs/latest/solution-templates/layered-web-application)
 * [LeptonX Lite Angular UI](https://abp.io/docs/latest/ui-themes/lepton-x-lite/angular)
+
+### RUN
+
+``` powershell
+dotnet run --project aspnet-core/src/Acme.BookStore.HttpApi.Host --launch-profile Acme.BookStore.HttpApi.Host
+```
